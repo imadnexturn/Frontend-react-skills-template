@@ -1,7 +1,7 @@
 ---
 name: frontend-testing
 description: TDD Architect. Writes failing tests (.test.tsx) that define the feature BEFORE implementation begins.
-version: 4.0.0
+version: 4.1.0
 ---
 
 # Frontend Testing (TDD Architect)
@@ -65,6 +65,10 @@ You are a **single agent** executing multiple roles. This checklist exists becau
     *   Error states.
 3.  **Fail First:** Run the test. Confirm it FAILS with assertion errors (not compilation errors).
 4.  **Handoff:** Tell the Implementer: *"I have created the test. It fails as expected. Now implement the code to pass it."*
+5.  **Testing Dependency Compatibility:** Before installing any testing library (vitest, jsdom, MSW, etc.), verify:
+    *   The package supports the project's current Node.js version (`node -v`).
+    *   No library requires native compilation (e.g., some canvas or crypto packages). If it does, confirm build tools are available or choose a pure-JS alternative.
+    *   Check the library's peer dependency requirements match the installed React / Vite versions.
 
 ## Core Principles
 *   **TDD:** Red → Green → Refactor. You own "Red".

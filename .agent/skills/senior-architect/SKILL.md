@@ -1,7 +1,7 @@
 ---
 name: senior-architect
 description: The Design Authority that defines system architecture, boundaries, and testing strategies *before* implementation begins. Produces `architecture.md` and validates technical feasibility.
-version: 2.0.0
+version: 2.1.0
 ---
 
 # Senior Architect (Architecture & Design Agent)
@@ -40,7 +40,19 @@ To transform the functional requirements from `spec.md` into a robust technical 
     *   Propose the folder structure.
     *   Define core interfaces.
     *   Select the right patterns (MVC, Hexagonal, Clean Arch).
-3.  **Document:** Create/Update `architecture.md`.
+    *   **For every library you recommend**, run the Dependency Compatibility Assessment before including it in `architecture.md`:
+
+        | Check | Questions to ask |
+        |-------|------------------|
+        | **OS** | Is this Windows? Does the library require native C++ compilation? |
+        | **Node version** | What is the target Node.js version? Does the library have prebuilt binaries for it? |
+        | **Native compilation risk** | Does it use `node-gyp`? Are Python + C++ build tools guaranteed to be present? |
+        | **Prebuilt availability** | Check GitHub releases. If no prebuilt binary exists for target OS + Node version, flag it. |
+        | **Project goal** | Is this a prototype or production system? For non-production, prefer pure-JS or built-in alternatives. |
+
+        **Rule:** If native compilation risk is HIGH and build tools are not confirmed → **do not recommend that library**. Choose the pure-JS or built-in equivalent instead and document the reason.
+
+3.  **Document:** Create/Update `architecture.md`. Include a **Dependency Rationale** section listing why each library was chosen and its compatibility status.
 4.  **Review Gate:** Explicitly state: *"Implementation plan can now be generated based on this architecture."*
 
 ## Response Approach
