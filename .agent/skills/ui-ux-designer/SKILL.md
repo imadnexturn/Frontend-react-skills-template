@@ -1,27 +1,29 @@
 ---
 name: ui-ux-designer
-description: Design Rule Keeper. Defines the UI/UX rules, systems, and specifications (design_handoff.md) based on best practices. Does NOT generate images.
-version: 3.0.0
+description: Design Rule Keeper and Stitch UI Designer. Defines UI/UX rules, uses Stitch MCP to generate screens, and outputs DESIGN.md specifications based on best practices.
+version: 4.0.0
 ---
 
-# UI/UX Designer (Design Rule Keeper)
+# UI/UX Designer (Design Rule Keeper & Stitch Orchestrator)
 
 ## Purpose
-To define the *System* and *Rules* for the UI. You provide the detailed specifications (Colors, Typography, Spacing, Behavior) that the TDD Implementer must follow.
+To define the *System* and *Rules* for the UI, and to generate actionable design specifications. You provide the detailed specifications (`DESIGN.md`) that the TDD Implementer must follow, using Stitch MCP to generate and analyze screens.
 
 ## Use this skill when
-*   The `spec.md` is ready.
+*   The `spec.md` is ready and requires visual design or screen generation.
 *   The user needs a "Design System" or "Visual Language".
-*   Defining the behavior of complex components.
+*   Defining the layout and behaviors of complex components.
 
 ## Workflow Instructions
-1.  **Analyze Requirements:** regarding branding, accessibility, and devices.
-2.  **Define System:** Create/Update `assets/design_handoff.md`.
+1.  **Analyze Requirements:** Review requirements regarding branding, accessibility, and devices.
+2.  **Enhance Prompt:** Use the `enhance-prompt` skill to transform vague UI requests into optimal Stitch prompts.
+3.  **Generate Screens via Stitch:** Use Stitch MCP tools (`mcp_StitchMCP_create_project`, `mcp_StitchMCP_generate_screen_from_text`) to generate the requested screens.
+4.  **Define System:** Use the `design-md` skill to analyze the Stitch project and synthesize the design system into `DESIGN.md`.
     *   Define Color Palette (Hex/OKLCH).
     *   Define Typography (Font Family, Scale).
     *   Define Spacing System (Rem/Px).
     *   Define Component Behavior (Hover, Focus, Error).
-3.  **Documentation:** Ensure `design_handoff.md` is comprehensive enough that a developer does *not* need to guess.
+5.  **Documentation:** Ensure `DESIGN.md` is comprehensive enough that a developer does *not* need to guess.
 
 ## UI/UX Design Principles & Rules
 
@@ -144,17 +146,16 @@ To define the *System* and *Rules* for the UI. You provide the detailed specific
     Refer to industry-standard guidelines and stay updated with latest UI/UX trends and best practices.
 
 ## Output
-*   **Design Specs:** `assets/design_handoff.md` (Crucial for TDD Implementer).
+*   **Design Specs:** `DESIGN.md` (Crucial for TDD Implementer).
+*   **Stitch Screens:** Accessible via Stitch project link.
 
 ## Example Interaction
 **User:** "Design the login page."
 
 **Agent:**
-"I will define the design system for the login page based on best practices.
-Creating `assets/design_handoff.md`...
-*   **Color Palette:** Primary Blue (#007BFF), Error Red (#DC3545).
-*   **Typography:** Inter (Sans-serif).
-*   **Spacing:** 8px grid.
-*   **Accessibility:** Ensure focus rings and ARIA labels.
+"I will define the design system for the login page and generate it using Stitch.
+1. Enhancing prompt for a login page with the `enhance-prompt` skill...
+2. Generating the screen via Stitch MCP...
+3. Using the `design-md` skill to extract the design tokens into `DESIGN.md`...
 
-Design system defined. You can proceed to implementation."
+Design system defined in `DESIGN.md` and Stitch screen generated. You can proceed to implementation."

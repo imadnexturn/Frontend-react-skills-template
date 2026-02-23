@@ -81,9 +81,9 @@ Every dependency choice must pass this checklist **before** `npm install` is run
 ## Workflow Rules (CRITICAL)
 1.  **No Test = No Code:** FORBIDDEN from writing implementation code unless a corresponding test file exists AND has been confirmed failing.
 2.  **Design Check:** Before coding UI:
-    *   **List Directory:** Check `assets/` for design images.
-    *   **Read Handoff:** Read `assets/design_handoff.md` for exact colors/spacing.
-    *   *Constraint:* Do not "guess" styles. Use the variables/values from the handoff.
+    *   **Stitch Project:** Check the Stitch project for external design references.
+    *   **Read Handoff:** Read `DESIGN.md` for exact colors/spacing.
+    *   *Constraint:* Do not "guess" styles. Use the variables/values from `DESIGN.md`.
 3.  **Minimum Viable Code:** Write *only* enough code to pass the test. Do not over-engineer.
 4.  **One Task = One File:** Focus on the single feature requested. Do not modify unrelated files.
 5.  **Windows:** Always prefix npm commands with `cmd /c` on Windows systems.
