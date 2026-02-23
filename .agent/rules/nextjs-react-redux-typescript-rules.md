@@ -12,10 +12,8 @@ This comprehensive guide outlines best practices, conventions, and standards for
     - Practice component-driven development
 
     Windows Command Execution
-    - On Windows systems with restrictive PowerShell execution policies, prefix npm/npx commands with `cmd /c`
-    - Example: `cmd /c npm test src/pages/Dashboard.test.tsx` instead of `npm test src/pages/Dashboard.test.tsx`
-    - This bypasses PowerShell restrictions while maintaining functionality
-    - Apply this pattern to all npm/npx commands when running on Windows
+    - Since the terminal is set to Git Bash, the `cmd /c` prefix is NOT required and should NOT be used for npm/npx commands.
+    - Run commands directly natively, e.g., `npm test src/pages/Dashboard.test.tsx`
 
     Strict TDD Execution & Command Safety (CIRCUIT BREAKER)
     - **Universal Hard Stop:** If ANY command (`npm`, `git`, `npx`) fails with an error code or system error (e.g., `command not found`, `EADDRINUSE`, `syntax error`), execution must **STOP IMMEDIATELY**.

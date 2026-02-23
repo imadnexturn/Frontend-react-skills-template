@@ -156,7 +156,7 @@ These are **task-tracking documents** that:
 | Gate | Required Evidence |
 |---|---|
 | ✅ Test file written | `*.test.tsx` or `*.test.ts` exists for the feature |
-| ✅ Test run confirmed Red | `cmd /c npm test -- --run <file>` was executed and reported **assertion failures** (not compilation errors) |
+| ✅ Test run confirmed Red | `npm test -- --run <file>` was executed and reported **assertion failures** (not compilation errors) |
 | ✅ Red is Valid | Test runner did NOT crash. Failure is "Expected X but found Y", not "Cannot find module" |
 
 **If any gate is not met, the BA must instruct `frontend-testing` to complete the Red phase first.**

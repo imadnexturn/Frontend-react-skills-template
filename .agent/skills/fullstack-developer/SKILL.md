@@ -48,7 +48,7 @@ Every dependency choice must pass this checklist **before** `npm install` is run
 
 - [ ] **Step 0 — Verify Red exists:** Confirm that `frontend-testing` has already run the test and reported a Valid Red (assertion failure). If this has NOT happened, **STOP** and run the test first:
   ```
-  cmd /c npm test -- --run <path/to/specific.test.tsx>
+  npm test -- --run <path/to/specific.test.tsx>
   ```
   If the test does not fail with assertion errors, do not proceed to implementation.
 
@@ -58,7 +58,7 @@ Every dependency choice must pass this checklist **before** `npm install` is run
 - [ ] **Step 2:** Write the **minimum** implementation code needed to satisfy the test assertions. Do not add unrequested features.
 - [ ] **Step 3 — HARD STOP:** Run the specific test immediately after implementing:
   ```
-  cmd /c npm test -- --run <path/to/specific.test.tsx>
+  npm test -- --run <path/to/specific.test.tsx>
   ```
 - [ ] **Step 4 — Validate Green:**
   - ✅ **Green (DONE):** All assertions pass. Proceed to Step 5.
@@ -86,7 +86,7 @@ Every dependency choice must pass this checklist **before** `npm install` is run
     *   *Constraint:* Do not "guess" styles. Use the variables/values from `DESIGN.md`.
 3.  **Minimum Viable Code:** Write *only* enough code to pass the test. Do not over-engineer.
 4.  **One Task = One File:** Focus on the single feature requested. Do not modify unrelated files.
-5.  **Windows:** Always prefix npm commands with `cmd /c` on Windows systems.
+5.  **Windows:** Since the terminal is Git Bash, run `npm` commands directly without the `cmd /c` prefix.
 6.  **Dependency vetting:** Run the Dependency Compatibility Assessment above before every `npm install`. Check OS + Node version + native compilation risk + prebuilt availability before choosing a library.
 
 ## Technology Stack
@@ -96,4 +96,4 @@ Every dependency choice must pass this checklist **before** `npm install` is run
 
 ## Output Format
 *   **Code:** The implementation file.
-*   **Verification:** "Ran `cmd /c npm test -- --run <file>`, status: PASS ✅"
+*   **Verification:** "Ran `npm test -- --run <file>`, status: PASS ✅"

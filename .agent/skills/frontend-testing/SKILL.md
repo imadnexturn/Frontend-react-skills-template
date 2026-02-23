@@ -27,7 +27,7 @@ You are a **single agent** executing multiple roles. This checklist exists becau
 - [ ] **Step 2:** Write (or update) the `*.test.tsx` / `*.test.ts` file with the new failing assertions ONLY. Do not touch any implementation file.
 - [ ] **Step 3 — HARD STOP:** Run the test immediately using:
   ```
-  cmd /c npm test -- --run <path/to/specific.test.tsx>
+  npm test -- --run <path/to/specific.test.tsx>
   ```
 - [ ] **Step 4 — Validate Red:**
   - ✅ **Valid Red (PROCEED):** Test runner executed and reported **Assertion Failures** (e.g., "Expected X but found Y", "Unable to find element"). This confirms the test is meaningful.
@@ -39,7 +39,7 @@ You are a **single agent** executing multiple roles. This checklist exists becau
 
 - [ ] **Step 7:** After the Implementer signals completion, run the same test again:
   ```
-  cmd /c npm test -- --run <path/to/specific.test.tsx>
+  npm test -- --run <path/to/specific.test.tsx>
   ```
 - [ ] **Step 8:** Confirm all tests **PASS**. If any fail, return to the Implementer.
 - [ ] **Step 9:** Mark the task as `[x]` in `plan.md`.
@@ -74,7 +74,7 @@ You are a **single agent** executing multiple roles. This checklist exists becau
 *   **TDD:** Red → Green → Refactor. You own "Red".
 *   **Black Box:** Test behavior, not implementation details.
 *   **Granularity:** One test file per feature task. Run tests per-file, not the whole suite.
-*   **Windows:** Always prefix npm commands with `cmd /c` on Windows systems.
+*   **Windows:** Since the terminal is Git Bash, run `npm` commands directly without the `cmd /c` prefix.
 
 ## Example Output
 ```typescript
@@ -99,6 +99,6 @@ describe('LoginForm', () => {
 
 Then immediately run:
 ```
-cmd /c npm test -- --run src/features/auth/LoginForm.test.tsx
+npm test -- --run src/features/auth/LoginForm.test.tsx
 ```
 Confirm it FAILS before handing off.
