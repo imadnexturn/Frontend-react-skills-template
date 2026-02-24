@@ -23,6 +23,7 @@ To define the *System* and *Rules* for the UI, and to generate actionable design
     *   Define Typography (Font Family, Scale).
     *   Define Spacing System (Rem/Px).
     *   Define Component Behavior (Hover, Focus, Error).
+    *   Define Assets & Imagery (Explicitly list required icons, e.g., Material Symbols, and images so they are not missed during implementation).
 5.  **Documentation:** Ensure `DESIGN.md` is comprehensive enough that a developer does *not* need to guess.
 
 ## UI/UX Design Principles & Rules

@@ -88,6 +88,7 @@ Every dependency choice must pass this checklist **before** `npm install` is run
 4.  **One Task = One File:** Focus on the single feature requested. Do not modify unrelated files.
 5.  **Windows:** Since the terminal is Git Bash, run `npm` commands directly without the `cmd /c` prefix.
 6.  **Dependency vetting:** Run the Dependency Compatibility Assessment above before every `npm install`. Check OS + Node version + native compilation risk + prebuilt availability before choosing a library.
+7.  **Strict Asset Preservation:** You MUST correctly extract and include all icons (e.g., Material Symbols `<span class="material-symbols-outlined">`) and images (`<img>` tags) exactly as they appear in the source HTML/Stitch design. Do not omit them or replace them with text placeholders.
 
 ## Technology Stack
 *   **Frontend:** React (Vite), Tailwind CSS (Exact values from design).

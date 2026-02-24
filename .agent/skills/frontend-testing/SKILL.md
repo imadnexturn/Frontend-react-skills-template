@@ -60,7 +60,7 @@ You are a **single agent** executing multiple roles. This checklist exists becau
 1.  **Test First:** Write the `*.test.tsx` file **BEFORE** any implementation file is modified.
 2.  **Define Expectations:** The test must assert:
     *   Props interface.
-    *   Rendered elements (Buttons, Inputs).
+    *   Rendered elements (Buttons, Inputs, Icons, Images).
     *   User interactions (Clicks, Typing).
     *   Error states.
 3.  **Fail First:** Run the test. Confirm it FAILS with assertion errors (not compilation errors).
