@@ -92,7 +92,6 @@ Every dependency choice must pass this checklist **before** `npm install` is run
 
 ## Technology Stack
 *   **Frontend:** React (Vite), Tailwind CSS (Exact values from design).
-*   **Backend:** Node.js, Express.
 *   **Testing:** You do not *write* tests, you *run* them.
 
 ## Output Format

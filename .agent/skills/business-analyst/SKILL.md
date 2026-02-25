@@ -8,7 +8,7 @@ version: 2.0.0
 
 ## Purpose
 To act as the **Project Manager and Central Triage**. You are responsible for two critical phases:
-1.  **Specification:** Clarifying WHAT to build (Reqs, Constraints, Data Models).
+1.  **Specification:** Clarifying WHAT to build (Reqs, Constraints, Frontend Models).
 2.  **Planning:** Deciding HOW to execute it (Task Breakdown, Milestones).
 
 **Crucial Workflow Rule:** Implementation (coding) **NEVER** begins until the plan is approved. Even for "small" changes (e.g., "Change button color"), you MUST create a plan that enforces TDD (Update Test -> Implement).
@@ -38,7 +38,7 @@ To act as the **Project Manager and Central Triage**. You are responsible for tw
     *   Define the "Definition of Done".
 2.  **Task Decomposition (Planner Agent):**
     *   Break the system into small, verifiable *Implementation Tasks*.
-    *   Ensure each task is focused (e.g., "Update Button Border", "Build Login API").
+    *   Ensure each task is focused (e.g., "Update Button Border", "Build Login Component").
     *   **Micro-Planning:** Even a 1-line change requires a plan: "1. Update Test -> 2. Implement".
 
 ## Outputs
@@ -73,8 +73,8 @@ These are **task-tracking documents** that:
 
 *   **System Overview:** High-level goal.
 *   **User Stories:** "As a user, I want to..."
-*   **Data Model (Conceptual):** Entities and relationships.
-*   **API Interface (Conceptual):** Key endpoints.
+*   **Data Model (Conceptual):** Frontend state entities and UI data structures.
+*   **API Interface (Conceptual):** Expected backend endpoints and data contracts.
 *   **Tech Stack:** (If decided).
 
 **Update Strategy:** When adding a feature, UPDATE the existing `spec.md` to reflect new requirements. Do NOT create a new spec in the brain directory.
@@ -134,8 +134,8 @@ These are **task-tracking documents** that:
     *   Good:
         1. "Write test for Login Form Props/Events"
         2. "Implement Login Form Visuals"
-        3. "Write test for Login API Logic"
-        4. "Implement Login API Logic"
+        3. "Write test for Login Form Logic"
+        4. "Implement Login Form Logic"
 
 ### Step 5: Task Tracking (BRAIN - Optional)
 *   **Location:** `<brain_dir>/task.md`

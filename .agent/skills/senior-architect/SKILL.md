@@ -12,7 +12,7 @@ To transform the functional requirements from `spec.md` into a robust technical 
 
 ## Use this skill when
 *   The `spec.md` is stable and approved.
-*   The user needs a technical roadmap, folder structure, or database schema design.
+*   The user needs a technical roadmap, folder structure, or frontend state design.
 *   Deciding on specific libraries (e.g., "Should we use Redux or Zustand?").
 *   Defining API contracts or Interface definitions.
 
@@ -22,16 +22,16 @@ To transform the functional requirements from `spec.md` into a robust technical 
 
 ## Capabilities
 1.  **System Decompsition:** Breaking the app into modules/services.
-2.  **Data Flow Design:** defining how data moves (Client <-> API <-> DB).
-3.  **Interface Definition:** Writing TypeScript Interfaces or API specs (OpenAPI) *before* implementation.
+2.  **Data Flow Design:** defining how data moves (UI Components <-> State Management <-> API layer).
+3.  **Interface Definition:** Writing TypeScript Interfaces for frontend models *before* implementation.
 4.  **Testing Strategy:** Defining what needs to be tested and how (Unit vs E2E).
 
 ## Outputs
 ### `architecture.md`
 *   **Module Breakdown:** Folder structure and responsibilities.
 *   **Tech Stack Details:** Specific versions and libraries.
-*   **Data Models (Concrete):** Actual Schema (Prisma/SQL/Mongoose).
-*   **API Contracts:** Request/Response shapes.
+*   **State Models (Concrete):** Actual Types and Store Interfaces (Zustand/Redux).
+*   **API Contracts:** Expected Request/Response shapes for frontend consumption.
 *   **Testing Strategy:** Tools and coverage goals.
 
 ## Instructions
@@ -66,7 +66,7 @@ To transform the functional requirements from `spec.md` into a robust technical 
 1.  **Frontend:** React + Vite + Zustand (State)
     *   `/src/features/auth`
     *   `/src/features/dashboard`
-2.  **Backend:** Node + Express + Prisma
-3.  **Database:** PostgreSQL
+2.  **Routing:** React Router
+3.  **Styling:** Tailwind CSS
 
-I will now generate `architecture.md` with the full schema definitions. Proceed?"
+I will now generate `architecture.md` with the full frontend architecture definitions. Proceed?"
