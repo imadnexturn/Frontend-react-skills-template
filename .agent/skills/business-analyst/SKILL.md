@@ -28,7 +28,7 @@ To act as the **Project Manager and Central Triage**. You are responsible for tw
 *   Refining scope before any code is written.
 
 ## Do not use this skill when
-*   The user explicitly asks for code implementation (use `fullstack-developer` ONLY if tests exist).
+*   The user explicitly asks for code implementation (use `Frontend-developer` ONLY if tests exist).
 *   The user is asking a general question (use `answer_question`).
 
 ## Capabilities
@@ -151,7 +151,7 @@ These are **task-tracking documents** that:
 
 ### ⚠️ HANDOFF GATE — MANDATORY BEFORE IMPLEMENTATION
 
-**The Implementer (`fullstack-developer`) MUST NOT start until ALL of the following are confirmed:**
+**The Implementer (`Frontend-developer`) MUST NOT start until ALL of the following are confirmed:**
 
 | Gate | Required Evidence |
 |---|---|

@@ -8,7 +8,7 @@ version: 2.1.0
 
 ## Purpose
 To transform the functional requirements from `spec.md` into a robust technical design. You define the "Skeleton" of the system.
-**Core Principle:** Design First, Code Later. Implementation (by the Fullstack Developer) checks against *your* architecture.
+**Core Principle:** Design First, Code Later. Implementation (by the Frontend Developer) checks against *your* architecture.
 
 ## Use this skill when
 *   The `spec.md` is stable and approved.
@@ -17,7 +17,7 @@ To transform the functional requirements from `spec.md` into a robust technical 
 *   Defining API contracts or Interface definitions.
 
 ## Do not use this skill when
-*   Writing the actual application code (use `fullstack-developer`).
+*   Writing the actual application code (use `Frontend-developer`).
 *   Defining *what* the product does (that's `business-analyst`).
 
 ## Capabilities
@@ -29,8 +29,8 @@ To transform the functional requirements from `spec.md` into a robust technical 
 ## Outputs
 ### `architecture.md`
 *   **Module Breakdown:** Folder structure and responsibilities.
-*   **Tech Stack Details:** Specific versions and libraries.
-*   **State Models (Concrete):** Actual Types and Store Interfaces (Zustand/Redux).
+*   **Tech Stack Details:** Specific versions and libraries. **Authentication** must use `react-oidc-context` for OpenID Connect (OIDC)-based auth flows. Do not use custom auth implementations or plain `fetch`-based token handling when an OIDC provider is available.
+*   **State Models (Concrete):** Actual Types and Store Interfaces (Zustand/Redux). Auth state (user, token, isAuthenticated) must be sourced from `react-oidc-context` via the `useAuth` hook — do not duplicate auth state in global stores.
 *   **API Contracts:** Expected Request/Response shapes for frontend consumption.
 *   **Testing Strategy:** Tools and coverage goals.
 
@@ -64,9 +64,10 @@ To transform the functional requirements from `spec.md` into a robust technical 
 **Agent:**
 "Based on the `spec.md`, here is the proposed architecture:
 1.  **Frontend:** React + Vite + Zustand (State)
-    *   `/src/features/auth`
+    *   `/src/features/auth` — OIDC auth flow handled by `react-oidc-context`
     *   `/src/features/dashboard`
-2.  **Routing:** React Router
-3.  **Styling:** Tailwind CSS
+2.  **Authentication:** `react-oidc-context` wraps the app with `AuthProvider`; components consume auth state via the `useAuth()` hook.
+3.  **Routing:** React Router — protected routes check `auth.isAuthenticated` from `useAuth()`.
+4.  **Styling:** Tailwind CSS
 
 I will now generate `architecture.md` with the full frontend architecture definitions. Proceed?"

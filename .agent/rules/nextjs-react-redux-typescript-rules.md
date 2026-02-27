@@ -193,6 +193,13 @@ This comprehensive guide outlines best practices, conventions, and standards for
     - Implement proper RTL support
     - Use proper currency formatting
 
+    Environment Configuration Standard
+    - Define required ENV variables like:
+      - VITE_API_BASE_URL=
+      - VITE_AUTH_REFRESH_ENDPOINT=
+      - VITE_AUTH_LOGIN_ENDPOINT=
+    - Agents must not hardcode endpoints.
+
     Documentation
     - Use JSDoc for documentation
     - Document all public functions, classes, methods, and interfaces
