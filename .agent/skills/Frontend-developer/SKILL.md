@@ -89,12 +89,29 @@ Every dependency choice must pass this checklist **before** `npm install` is run
 5.  **Windows:** Since the terminal is Git Bash, run `npm` commands directly without the `cmd /c` prefix.
 6.  **Dependency vetting:** Run the Dependency Compatibility Assessment above before every `npm install`. Check OS + Node version + native compilation risk + prebuilt availability before choosing a library.
 7.  **Strict Asset Preservation:** You MUST correctly extract and include all icons (e.g., Material Symbols `<span class="material-symbols-outlined">`) and images (`<img>` tags) exactly as they appear in the source HTML/Stitch design. Do not omit them or replace them with text placeholders.
-8.  **Authentication Security:** Always reference `@[.agent/rules/auth-security-best-practices.md]` for token storage strategies. Use `react-oidc-context` for auth. Access `user`, `isAuthenticated`, and tokens via `useAuth()`. Do NOT hardcode tokens, store access/refresh tokens in `localStorage` manually, or implement custom OIDC flows. Relegate refresh tokens to `HttpOnly` cookies.
+8.  **Authentication Security:** Always reference `rules/auth-security-best-practices.md` (in this skill folder) for token storage strategies. Use `react-oidc-context` for auth. Access `user`, `isAuthenticated`, and tokens via `useAuth()`. Do NOT hardcode tokens, store access/refresh tokens in `localStorage` manually, or implement custom OIDC flows. Relegate refresh tokens to `HttpOnly` cookies.
+9.  **React Composition Patterns:** Before building or refactoring components, consult the relevant rule file from `rules/` (in this skill folder). Use compound components, state lifting, and explicit variants. Do NOT use boolean prop proliferation.
 
 ## Technology Stack
 *   **Frontend:** React (Vite), Tailwind CSS (Exact values from design).
-*   **Authentication:** `react-oidc-context` — wrap the app root with `<AuthProvider>` and consume auth state (user, token, isAuthenticated) exclusively via the `useAuth()` hook. Never hardcode tokens or duplicate auth state in Zustand/Redux. Must follow the security standards in `@[.agent/rules/auth-security-best-practices.md]`.
+*   **Authentication:** `react-oidc-context` — wrap the app root with `<AuthProvider>` and consume auth state (user, token, isAuthenticated) exclusively via the `useAuth()` hook. Never hardcode tokens or duplicate auth state in Zustand/Redux. Must follow the security standards in `rules/auth-security-best-practices.md`.
 *   **Testing:** You do not *write* tests, you *run* them.
+
+## Rules — Quick Reference
+
+Read the specific rule file **before** implementing. All files are in `rules/` (this skill folder).
+
+| Priority | Category | Rule File | When to Read |
+|----------|----------|-----------|--------------|
+| 1 (HIGH) | Security | `rules/auth-security-best-practices.md` | Implementing auth, storing tokens, managing sessions |
+| 1 (HIGH) | Architecture | `rules/architecture-avoid-boolean-props.md` | Component has multiple boolean props toggling behavior |
+| 1 (HIGH) | Architecture | `rules/architecture-compound-components.md` | Building complex components with shared state |
+| 2 (MED) | State | `rules/state-decouple-implementation.md` | UI is coupled to a specific state library |
+| 2 (MED) | State | `rules/state-context-interface.md` | Defining context interfaces for dependency injection |
+| 2 (MED) | State | `rules/state-lift-state.md` | Siblings need access to the same state |
+| 3 (MED) | Patterns | `rules/patterns-explicit-variants.md` | Creating component variants (e.g., Edit vs Thread) |
+| 3 (MED) | Patterns | `rules/patterns-children-over-render-props.md` | Choosing between `children` and `renderX` props |
+| 4 (MED) | React 19 | `rules/react19-no-forwardref.md` | Using `ref` or `useContext` in React 19+ |
 
 ## Output Format
 *   **Code:** The implementation file.
