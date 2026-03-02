@@ -2,6 +2,8 @@
 name: frontend-testing
 description: TDD Architect. Writes failing tests (.test.tsx) that define the feature BEFORE implementation begins.
 version: 4.1.0
+allowed-tools:
+  - "mcp_context7*"
 ---
 
 # Frontend Testing (TDD Architect)

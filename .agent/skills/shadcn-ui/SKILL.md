@@ -2,8 +2,7 @@
 name: shadcn-ui
 description: Expert guidance for integrating and building applications with shadcn/ui components, including component discovery, installation, customization, and best practices.
 allowed-tools:
-  - "shadcn*:*"
-  - "mcp_shadcn*"
+  - "mcp_context7*"
   - "Read"
   - "Write"
   - "Bash"
@@ -30,6 +29,16 @@ Use the shadcn MCP tools to explore the component catalog and Registry Directory
 - **List all components**: Use `list_components` to see the complete catalog
 - **Get component metadata**: Use `get_component_metadata` to understand props, dependencies, and usage
 - **View component demos**: Use `get_component_demo` to see implementation examples
+
+**Context7 Documentation Lookup (Recommended for latest docs)**:
+Use the `context7` MCP server to fetch the most up-to-date shadcn/ui documentation and code examples:
+1. First, resolve the library ID: call `mcp_context7_resolve-library-id` with `libraryName: "shadcn/ui"`.
+2. Then, query docs: call `mcp_context7_query-docs` with the resolved library ID and your specific question (e.g., "how to use the DataTable component", "sidebar component examples").
+
+This is especially useful when:
+- You need to verify the latest API, props, or usage patterns
+- A component has been recently added or updated
+- The shadcn MCP tools don't return enough detail
 
 ### 2. Component Installation
 
@@ -298,6 +307,7 @@ import {
 - shadcn/ui v4 requires React 18+ and Next.js 13+ (if using Next.js)
 - Some components require specific Radix UI versions
 - Check documentation for breaking changes between versions
+- Use `mcp_context7_query-docs` to verify the latest version-specific guidance when uncertain
 
 ## Validation and Quality
 
@@ -315,6 +325,7 @@ Refer to the following resource files for detailed guidance:
 - `resources/component-catalog.md` - Complete component reference
 - `resources/customization-guide.md` - Theming and variant patterns
 - `resources/migration-guide.md` - Upgrading from other UI libraries
+- **Context7 MCP** - Use `mcp_context7_resolve-library-id` → `mcp_context7_query-docs` for live, up-to-date shadcn/ui documentation and code examples
 
 ## Examples
 
