@@ -29,7 +29,7 @@ To transform the functional requirements from `spec.md` into a robust technical 
 ## Outputs
 ### `architecture.md`
 *   **Module Breakdown:** Folder structure and responsibilities.
-*   **Tech Stack Details:** Specific versions and libraries. **Authentication** must use `react-oidc-context` for OpenID Connect (OIDC)-based auth flows. Do not use custom auth implementations or plain `fetch`-based token handling when an OIDC provider is available.
+*   **Tech Stack Details:** Specific versions and libraries. **UI Components** must use `shadcn/ui` (Radix UI primitives + Tailwind CSS). Refer to the `shadcn-ui` skill for component discovery, installation, and customization guidance. **Authentication** must use `react-oidc-context` for OpenID Connect (OIDC)-based auth flows. Do not use custom auth implementations or plain `fetch`-based token handling when an OIDC provider is available.
 *   **State Models (Concrete):** Actual Types and Store Interfaces (Zustand/Redux). Auth state (user, token, isAuthenticated) must be sourced from `react-oidc-context` via the `useAuth` hook — do not duplicate auth state in global stores.
 *   **API Contracts:** Expected Request/Response shapes for frontend consumption.
 *   **Testing Strategy:** Tools and coverage goals.
@@ -40,6 +40,7 @@ To transform the functional requirements from `spec.md` into a robust technical 
     *   Propose the folder structure.
     *   Define core interfaces.
     *   Select the right patterns (MVC, Hexagonal, Clean Arch).
+    *   **UI Components:** Specify `shadcn/ui` as the component library. Use the `shadcn-ui` skill to discover available components (`list_components`, `get_component_metadata`) and blocks (`list_blocks`) before designing custom components. Document which shadcn/ui components map to each feature in `architecture.md`.
     *   **For every library you recommend**, run the Dependency Compatibility Assessment before including it in `architecture.md`:
 
         | Check | Questions to ask |
@@ -66,8 +67,10 @@ To transform the functional requirements from `spec.md` into a robust technical 
 1.  **Frontend:** React + Vite + Zustand (State)
     *   `/src/features/auth` — OIDC auth flow handled by `react-oidc-context`
     *   `/src/features/dashboard`
-2.  **Authentication:** `react-oidc-context` wraps the app with `AuthProvider`; components consume auth state via the `useAuth()` hook.
-3.  **Routing:** React Router — protected routes check `auth.isAuthenticated` from `useAuth()`.
-4.  **Styling:** Tailwind CSS
+    *   `/src/components/ui/` — shadcn/ui components (Button, Card, Dialog, Table, etc.)
+2.  **UI Components:** `shadcn/ui` — install via `npx shadcn@latest add [component]`. Refer to `shadcn-ui` skill for discovery and customization.
+3.  **Authentication:** `react-oidc-context` wraps the app with `AuthProvider`; components consume auth state via the `useAuth()` hook.
+4.  **Routing:** React Router — protected routes check `auth.isAuthenticated` from `useAuth()`.
+5.  **Styling:** Tailwind CSS + shadcn/ui CSS variables for theming.
 
 I will now generate `architecture.md` with the full frontend architecture definitions. Proceed?"

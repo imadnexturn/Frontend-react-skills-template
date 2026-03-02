@@ -91,9 +91,11 @@ Every dependency choice must pass this checklist **before** `npm install` is run
 7.  **Strict Asset Preservation:** You MUST correctly extract and include all icons (e.g., Material Symbols `<span class="material-symbols-outlined">`) and images (`<img>` tags) exactly as they appear in the source HTML/Stitch design. Do not omit them or replace them with text placeholders.
 8.  **Authentication Security:** Always reference `rules/auth-security-best-practices.md` (in this skill folder) for token storage strategies. Use `react-oidc-context` for auth. Access `user`, `isAuthenticated`, and tokens via `useAuth()`. Do NOT hardcode tokens, store access/refresh tokens in `localStorage` manually, or implement custom OIDC flows. Relegate refresh tokens to `HttpOnly` cookies.
 9.  **React Composition Patterns:** Before building or refactoring components, consult the relevant rule file from `rules/` (in this skill folder). Use compound components, state lifting, and explicit variants. Do NOT use boolean prop proliferation.
+10. **shadcn/ui Components:** Use `shadcn/ui` as the primary UI component library. Before building any UI element, check if a shadcn/ui component or block already exists by referring to the `shadcn-ui` skill. Install components via `npx shadcn@latest add [component]`. Place components in `components/ui/`. Extend components in `components/` (not `components/ui/`). Use the `cn()` utility for class merging.
 
 ## Technology Stack
 *   **Frontend:** React (Vite), Tailwind CSS (Exact values from design).
+*   **UI Components:** `shadcn/ui` — Radix UI primitives + Tailwind CSS. Refer to the `shadcn-ui` skill for component discovery, installation (`npx shadcn@latest add`), and customization. Components live in `components/ui/`.
 *   **Authentication:** `react-oidc-context` — wrap the app root with `<AuthProvider>` and consume auth state (user, token, isAuthenticated) exclusively via the `useAuth()` hook. Never hardcode tokens or duplicate auth state in Zustand/Redux. Must follow the security standards in `rules/auth-security-best-practices.md`.
 *   **Testing:** You do not *write* tests, you *run* them.
 
