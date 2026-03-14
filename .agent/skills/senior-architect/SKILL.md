@@ -47,6 +47,8 @@ To transform the functional requirements from `spec.md` into a robust technical 
 
         **Rule:** If native compilation risk is HIGH and build tools are not confirmed → **do not recommend that library**. Choose the pure-JS or built-in equivalent instead and document the reason.
 
+        **Rule:** Always recommend the **latest stable** versions of core libraries (React, Vite, React Router, etc.). Do not pin to a specific major version unless the project has a documented compatibility constraint.
+
 3.  **Document:** Create/Update `architecture.md`. Include a **Dependency Rationale** section listing why each library was chosen and its compatibility status.
 4.  **Review Gate:** Explicitly state: *"Implementation plan can now be generated based on this architecture."*
 

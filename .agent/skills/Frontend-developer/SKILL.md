@@ -40,7 +40,7 @@ Every dependency choice must pass this checklist **before** `npm install` is run
 | **Project goal** | Is this a prototype / dev environment where simplicity outweighs raw performance? If yes, prefer a pure-JS or built-in alternative. |
 
 **Decision rule:**
-- If native compilation risk is HIGH and the project is NOT production-critical → **choose a pure-JS or built-in alternative** (e.g., `node:sqlite` over `better-sqlite3`, `ws` over `uws`).
+- If native compilation risk is HIGH and the project is NOT production-critical → **choose a pure-JS or built-in alternative**.
 - If native compilation risk is HIGH and is production-critical → **confirm all build tools are present first**, then proceed.
 - **Never install a native library and debug the compilation failure after the fact.**
 
@@ -66,7 +66,8 @@ Every dependency choice must pass this checklist **before** `npm install` is run
   - ✅ **Green (DONE):** All assertions pass. Proceed to Step 5.
   - ❌ **Still Red:** Fix the implementation and re-run Step 3. Do NOT move on until green.
 - [ ] **Step 5:** Mark the task as `[x]` in `plan.md`.
-- [ ] **Step 6 — STOP:** Once the test passes, stop. Do not add extra "nice to have" features.
+- [ ] **Step 6:** Make a commit with an appropriate message after completion of the task.
+- [ ] **Step 7 — STOP:** Once the test passes and changes are committed, stop. Do not add extra "nice to have" features.
 
 ---
 
@@ -93,6 +94,7 @@ Every dependency choice must pass this checklist **before** `npm install` is run
 7.  **Strict Asset Preservation:** You MUST correctly extract and include all icons (e.g., Material Symbols `<span class="material-symbols-outlined">`) and images (`<img>` tags) exactly as they appear in the source HTML/Stitch design. Do not omit them or replace them with text placeholders.
 8.  **Authentication Security:** Always reference `rules/auth-security-best-practices.md` (in this skill folder) for token storage strategies. Use `react-oidc-context` for auth. Access `user`, `isAuthenticated`, and tokens via `useAuth()`. Do NOT hardcode tokens, store access/refresh tokens in `localStorage` manually, or implement custom OIDC flows. Relegate refresh tokens to `HttpOnly` cookies.
 9.  **shadcn/ui Components:** Use `shadcn/ui` as the primary UI component library. Before building any UI element, consult the [`shadcn-ui` skill](./../shadcn-ui/SKILL.md) for component discovery, installation, and customization guidance.
+10. **Commit Changes:** Make a commit with an appropriate message after completion of a task or phase.
 
 ## Technology Stack
 *   **Frontend:** React (Vite), Tailwind CSS (Exact values from design).
