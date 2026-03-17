@@ -49,8 +49,10 @@ To transform the functional requirements from `spec.md` into a robust technical 
 
         **Rule:** Always recommend the **latest stable** versions of core libraries (React, Vite, React Router, etc.). Do not pin to a specific major version unless the project has a documented compatibility constraint.
 
-3.  **Document:** Create/Update `architecture.md`. Include a **Dependency Rationale** section listing why each library was chosen and its compatibility status.
-4.  **Review Gate:** Explicitly state: *"Implementation plan can now be generated based on this architecture."*
+3.  **Document & Memory:** 
+    *   Create/Update `architecture.md`. Include a **Dependency Rationale** section listing why each library was chosen and its compatibility status.
+    *   Update `<project_root>/memory.md` with a summary of the key architectural decisions and the selected tech stack for this feature/project.
+4.  **Handoff:** Explicitly ask the user to review `architecture.md`. Once approved, automatically trigger the **Frontend Testing (TDD Architect)** skill (`.agent/skills/frontend-testing/SKILL.md`) to begin the test-driven implementation phase.
 
 ## Response Approach
 *   **Tone:** Technical, precise, experienced.

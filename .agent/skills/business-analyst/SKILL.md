@@ -147,7 +147,9 @@ These are **task-tracking documents** that:
     1. `<project_root>/spec.md` (updated)
     2. `<project_root>/plan.md` (updated)
     3. `<brain_dir>/implementation_plan.md` (optional, for detailed review)
-*   Once approved, trigger the **Frontend Testing (TDD Architect)** skill — NOT the Implementer directly.
+*   Once user approves the plan:
+    *   **If NEW APP or Architectural Change:** Automatically trigger the **Senior Architect** skill (`.agent/skills/senior-architect/SKILL.md`) to define the structure.
+    *   **If Feature/Bug (Architecture exists):** Automatically trigger the **Frontend Testing (TDD Architect)** skill (`.agent/skills/frontend-testing/SKILL.md`) to write tests.
 
 ### ⚠️ HANDOFF GATE — MANDATORY BEFORE IMPLEMENTATION
 

@@ -16,6 +16,12 @@ This comprehensive guide outlines best practices, conventions, and standards for
     - Run commands directly natively, e.g., `npm test src/pages/Dashboard.test.tsx`
 
     Strict TDD Execution & Command Safety (CIRCUIT BREAKER)
+    - **App Creation Pipeline (MANDATORY):** If the user asks to build, create, or initialize a NEW app, you MUST execute the following skills strictly in order, with user approval where needed, without falling back to a generic workflow:
+        1. `.agent/skills/business-analyst/SKILL.md` (To gather requirements and plan)
+        2. `.agent/skills/senior-architect/SKILL.md` (To define the architecture and tech stack)
+        3. `.agent/skills/frontend-testing/SKILL.md` (To write the failing tests for the first task)
+        4. `.agent/skills/Frontend-developer/SKILL.md` (To implement the code)
+    - **Feature/Bug Pipeline (MANDATORY):** For ANY feature request or bug fix, you MUST execute `.agent/skills/frontend-testing/SKILL.md` first, followed by `.agent/skills/Frontend-developer/SKILL.md`. If required, `.agent/skills/business-analyst/SKILL.md` should be called initially for planning. DO NOT fall back to a generic workflow.
     - **Universal Hard Stop:** If ANY command (`npm`, `git`, `npx`) fails with an error code or system error (e.g., `command not found`, `EADDRINUSE`, `syntax error`), execution must **STOP IMMEDIATELY**.
     - **Valid vs Invalid Red:**
         - **Invalid Red (STOP):** The test runner crashed, file not found, or compilation error. DO NOT PROCEED. Notify User.

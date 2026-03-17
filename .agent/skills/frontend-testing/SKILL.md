@@ -34,7 +34,7 @@ You are a **single agent** executing multiple roles. This checklist exists becau
 - [ ] **Step 4 — Validate Red:**
   - ✅ **Valid Red (PROCEED):** Test runner executed and reported **Assertion Failures** (e.g., "Expected X but found Y", "Unable to find element"). This confirms the test is meaningful.
   - ❌ **Invalid Red (STOP):** Test runner crashed, compilation error, or file not found. **DO NOT PROCEED.** Fix the test file first, then re-run Step 3.
-- [ ] **Step 5:** Only after confirming Valid Red — hand off to `Frontend-developer` with the message: *"Test fails as expected. Implementer, go."*
+- [ ] **Step 5:** Only after confirming Valid Red — automatically trigger the **Frontend Developer** skill (`.agent/skills/Frontend-developer/SKILL.md`) with the message: *"Test fails as expected. Implementer, go."*
 - [ ] **Step 6 — STOP:** Do **NOT** write any implementation code. That is the Developer's job.
 
 ### Phase 2 — Verify Green (after Implementer is done)
@@ -45,6 +45,7 @@ You are a **single agent** executing multiple roles. This checklist exists becau
   ```
 - [ ] **Step 8:** Confirm all tests **PASS**. If any fail, return to the Implementer.
 - [ ] **Step 9:** Mark the task as `[x]` in `plan.md`.
+- [ ] **Step 10:** Update `<project_root>/memory.md` briefly noting that TDD tests for the feature have been successfully implemented and are passing.
 
 ---
 

@@ -67,7 +67,8 @@ Every dependency choice must pass this checklist **before** `npm install` is run
   - ❌ **Still Red:** Fix the implementation and re-run Step 3. Do NOT move on until green.
 - [ ] **Step 5:** Mark the task as `[x]` in `plan.md`.
 - [ ] **Step 6:** Make a commit with an appropriate message after completion of the task.
-- [ ] **Step 7 — STOP:** Once the test passes and changes are committed, stop. Do not add extra "nice to have" features.
+- [ ] **Step 7:** Update `<project_root>/memory.md` summarizing the implementation details, libraries actually used, and any technical context future agents should know.
+- [ ] **Step 8 — STOP:** Once the test passes, memory is updated, and changes are committed, stop. Do not add extra "nice to have" features.
 
 ---
 
